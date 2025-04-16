@@ -29,7 +29,7 @@ jobs:
           cache: 'npm'
 
       - run: npm ci
-      - run: ipconfigg
+      - run: ipconfig
 
       - run: npm run build --if-present
 
