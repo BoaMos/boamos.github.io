@@ -3,7 +3,7 @@ name: Deploy Portfolio
 on:
   push:
     branches:
-      - main # Trigger deployment on push to the main branch
+      - main  # Trigger deployment on push to the main branch
 
 jobs:
   deploy:
@@ -14,11 +14,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      # Step 2: Set up Node.js
+      # Step 2: Set up Node.js (updated to a supported version)
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Specify the Node.js version
+          node-version: '18.18.0'  # Updated Node.js version
 
       # Step 3: Install dependencies
       - name: Install Dependencies
