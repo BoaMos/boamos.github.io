@@ -1,0 +1,10 @@
+# Allow all search engines to index the site
+User-agent: *
+Disallow:
+
+# Disallow admin and API routes (if applicable)
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap for better crawling
+Sitemap: https://boamos.github.io/sitemap.xml
