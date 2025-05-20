@@ -5,14 +5,15 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-     "export": "next export",
-     "output":"next output",
+    "export": "next export",
+    "output": "next output",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "autoprefixer": "^10.4.21",
     "next": "15.3.0",
+    "next-sitemap": "^4.2.3",
     "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -25,5 +26,5 @@
     "eslint-config-next": "15.3.0",
     "tailwindcss": "^4.1.4"
   },
-  "homepage": "https://boamos.github.io/boamos.github.io" 
-  }
+  "homepage": "https://boamos.github.io/boamos.github.io"
+}

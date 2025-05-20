@@ -4,33 +4,13 @@ const Introduction = () => {
   const [text, setText] = useState("");
   const [text2, setText2] = useState("");
   const fullText =
-    "A highly analytical and results-driven IT professional with a BSc in Computing and Finance degree, specializing in network troubleshooting, system maintenance, and technical support. I possess extensive knowledge in cybersecurity, cloud security, and IT operations, with hands-on expertise in network administration, system security, in addition to ensuring optimal ICT infrastructure performance.";
-  const fullText2 =
-    "Proficient in diagnosing complex technical issues and delivering effective solutions for both hardware and software environments, I am adept at ensuring minimal downtime, optimizing system performance, and enhancing user experience through proactive troubleshooting and precise issue resolution.";
+    "A highly analytical and results-driven IT professional with a BSc in Computing and Finance degree, specializing in network troubleshooting, system maintenance, and technical support. I possess extensive knowledge in cybersecurity, cloud security, and IT operations, with hands-on expertise in network administration, system security, in addition to ensuring optimal ICT infrastructure performance.Proficient in diagnosing complex technical issues and delivering effective solutions for both hardware and software environments, I am adept at ensuring minimal downtime, optimizing system performance, and enhancing user experience through proactive troubleshooting and precise issue resolution.";
 
-  // Typing effect for text1
   useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      setText((prev) => prev + fullText[index]);
-      index++;
-      if (index === fullText.length) clearInterval(interval);
-    }, 50); // Typing speed for text1
-    return () => clearInterval(interval);
+    // Set the full text directly without typing effect
+    setText(fullText);
+    setText2(fullText); // If text2 is meant to be the same as text1
   }, []);
-
-  // Typing effect for text2 after text1 is complete
-  useEffect(() => {
-    if (text === fullText) {
-      let index = 0;
-      const interval = setInterval(() => {
-        setText2((prev) => prev + fullText2[index]);
-        index++;
-        if (index === fullText2.length) clearInterval(interval);
-      }, 50); // Typing speed for text2
-      return () => clearInterval(interval);
-    }
-  }, [text]);
 
   return (
     <section className="bg-black py-6 px-8 shadow-md glow">
