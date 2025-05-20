@@ -28,6 +28,7 @@ jobs:
       - name: Build Project
         run: npm run build
 
-      # Step 5: change directory
-      - name: change directory to static pages 
-        run: cd out
+      # Step 5: Deploy/Start Application
+      - name: Start Application
+        run: |
+          nohup npm start &
