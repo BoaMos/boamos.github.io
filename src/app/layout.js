@@ -80,6 +80,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <meta name="google-site-verification" content="jOlrVGl3ljpzeOS43jRczrbvkrfxYL7haujKUUUt5Ek" />
       <body className="antialiased font-mono">{children}</body>
     </html>
   );
