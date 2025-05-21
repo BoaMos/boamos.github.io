@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
-const WorkExperience = () => {
+const WorkExperience = ({ isLightMode }) => {
+  const [expandedIndex, setExpandedIndex] = useState(null);
+
   const experiences = [
     {
       company: "Choppies Distribution Center",
@@ -26,7 +28,8 @@ const WorkExperience = () => {
         "Strengthened network security by assisting with firewall management, monitoring traffic, and mitigating potential threats.",
         "Optimized incident management processes using Ivanti Heat, improving resolution accuracy and response times.",
       ],
-    },{
+    },
+    {
       company: "Debswana Diamond Company",
       location: "Gaborone",
       role: "Information Management Attaché",
@@ -38,28 +41,71 @@ const WorkExperience = () => {
         "Assisted with system upgrades and configurations, improving overall performance by 20% through optimized infrastructure.",
       ],
     },
+  ];
 
- ];
+  const toggleResponsibilities = (index) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
 
   return (
-    <section className="bg-black py-6 px-8 shadow-md glow">
+    <section
+      className={`py-6 px-8 shadow-md ${
+        isLightMode ? "bg-white " : "bg-black"
+      }`}
+    >
       <div className="container mx-auto">
-      <h2 className="text-2xl font-bold text-green-400 mb-4 glow">Work Experience</h2>
-            {experiences.map((experience, index) => (
+        <h2
+          className={`text-2xl font-bold mb-4 ${
+            isLightMode ? "text-black " : "text-green-400"
+          }`}
+        >
+          Work Experience
+        </h2>
+        {experiences.map((experience, index) => (
           <div
             key={index}
-            className="mb-6 p-4 bg-black rounded shadow-sm border border-green-400 glow"
+            className={`mb-6 p-4 rounded shadow-sm border ${
+              isLightMode
+                ? "bg-gray-100 border-gray-300 text-black  hover:bg-gray-200 hover:shadow-lg hover:bg-opacity-2xl"
+                : "bg-black border-green-400 text-green-300 glow hover:bg-green-800 hover:shadow-2xl hover:bg-opacity-2xl"
+            }`}
           >
-            <h3 className="text-xl font-semibold text-grey-300 glow">
+            <h3
+              className={`text-xl font-semibold ${
+                isLightMode ? "text-black" : "text-green-400"
+              }`}
+            >
               {experience.role} | {experience.company}
             </h3>
-            <p className="text-green-200">{experience.duration}</p>
-            <p className="text-green-200">{experience.location}</p>
-            <ul className="mt-2 list-disc list-inside text-green-200">
-              {experience.responsibilities.map((responsibility, idx) => (
-                <li key={idx}>{responsibility}</li>
-              ))}
-            </ul>
+            <p className={isLightMode ? "text-black" : "text-green-300"}>
+              {experience.duration}
+            </p>
+            <p className={isLightMode ? "text-black" : "text-green-300"}>
+              {experience.location}
+            </p>
+            <button
+              className={`mt-2 underline cursor-pointer ${
+                isLightMode
+                  ? "text-blue-500 hover:text-blue-600"
+                  : "text-green-400 hover:text-green-500"
+              }`}
+              onClick={() => toggleResponsibilities(index)}
+            >
+              {expandedIndex === index
+                ? "Hide Responsibilities"
+                : "Show Responsibilities"}
+            </button>
+            {expandedIndex === index && (
+              <ul
+                className={`mt-2 list-disc list-inside ${
+                  isLightMode ? "text-black" : "text-green-300"
+                }`}
+              >
+                {experience.responsibilities.map((responsibility, idx) => (
+                  <li key={idx}>{responsibility}</li>
+                ))}
+              </ul>
+            )}
           </div>
         ))}
       </div>

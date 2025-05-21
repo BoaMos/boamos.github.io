@@ -1,6 +1,6 @@
 import React from "react";
 
-const Education = () => {
+const Education = ({ isLightMode }) => {
   const education = [
     {
       degree: "BSc in Computing with Finance",
@@ -18,21 +18,49 @@ const Education = () => {
   ];
 
   return (
-    <section className="bg-black py-6 px-8 shadow-md glow">
+    <section
+      className={`py-6 px-8 shadow-md ${
+        isLightMode ? "bg-white" : "bg-black"
+      }`}
+    >
       <div className="container mx-auto">
-        <h2 className="text-2xl font-bold text-green-400 mb-4 glow">Education</h2>
+        <h2
+          className={`text-2xl font-bold mb-4 ${
+            isLightMode ? "text-black" : "text-green-400"
+          }`}
+        >
+          Education
+        </h2>
         <div className="mb-6">
-          <h3 className="text-lg font-semibold text-green-300 glow">Academic Qualification</h3>
-          <p className="text-green-200">
-            {education[0].degree} | {education[0].institution} | {education[0].year}
+          <h3
+            className={`text-lg font-semibold ${
+              isLightMode ? "text-black" : "text-green-300"
+            }`}
+          >
+            Academic Qualification
+          </h3>
+          <p className={isLightMode ? "text-black" : "text-green-200"}>
+            {education[0].degree} | {education[0].institution} |{" "}
+            {education[0].year}
           </p>
         </div>
         <div>
-          <h3 className="text-lg font-semibold text-green-300 glow">Certifications</h3>
-          <ul className="mt-2 list-disc list-inside text-green-200">
+          <h3
+            className={`text-lg font-semibold ${
+              isLightMode ? "text-black" : "text-green-300"
+            }`}
+          >
+            Certifications
+          </h3>
+          <ul
+            className={`mt-2 list-disc list-inside ${
+              isLightMode ? "text-black" : "text-green-200"
+            }`}
+          >
             {certifications.map((certification, index) => (
               <li key={index}>
-                {certification.title} | {certification.provider} | {certification.year}
+                {certification.title} | {certification.provider} |{" "}
+                {certification.year}
               </li>
             ))}
           </ul>

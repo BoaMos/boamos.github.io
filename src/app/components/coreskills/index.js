@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CoreStrengths = () => {
+const CoreStrengths = ({ isLightMode }) => {
   const strengths = [
     "Network Security (Fortinet, Cisco, Wireshark)",
     "VPN Configuration (OpenVPN, Cisco AnyConnect)",
@@ -40,14 +40,32 @@ const CoreStrengths = () => {
   const displayedStrengths = showAll ? strengths : strengths.slice(0, 6); // Show only the first 6 initially
 
   return (
-    <section className="bg-black py-6 px-8 shadow-md glow">
+    <section
+      className={`py-6 px-8 shadow-md ${
+        isLightMode ? "bg-white" : "bg-black"
+      }`}
+    >
       <div className="container mx-auto">
-        <h2 className="text-2xl font-bold text-green-400 mb-4">Core Strengths</h2>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <h2
+          className={`text-2xl font-bold mb-4 ${
+            isLightMode ? "text-black" : "text-green-400"
+          }`}
+        >
+          Core Strengths
+        </h2>
+        <ul
+          className={`grid grid-cols-1   sm:grid-cols-2 lg:grid-cols-3 gap-4 ${
+            isLightMode ? "text-black" : "text-green-300"
+          }`}
+        >
           {displayedStrengths.map((strength, index) => (
             <li
               key={index}
-              className="text-green-300 bg-black p-2 rounded shadow-sm border border-green-400 glow"
+              className={`p-2  rounded shadow-sm border ${
+                isLightMode
+                  ? "bg-gray-100 border-gray-300 text-black hover:bg-gray-200 hover:shadow-lg hover:bg-opacity-2xl"  
+                  : "bg-black border-green-400 text-green-300 glow hover:bg-green-800 hover:shadow-2xl hover:bg-opacity-2xl"
+              }`}
             >
               {strength}
             </li>
@@ -56,7 +74,11 @@ const CoreStrengths = () => {
         <div className="text-center mt-4">
           <button
             onClick={toggleShowAll}
-            className="text-green-400 hover:text-green-500 transition-colors duration-300 underline"
+            className={`underline transition-colors duration-300 ${
+              isLightMode
+                ? "text-blue-500 hover:text-blue-600"
+                : "text-green-400 hover:text-green-500"
+            }`}
           >
             {showAll ? "Show Less" : "See More"}
           </button>

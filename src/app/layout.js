@@ -1,23 +1,40 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata = {
-  title: "Boago Mosidila",
-  description: "A $10,000 hacker-themed portfolio",
+  title: "Boago Mosidila - Cybersecurity & IT Professional",
+  description:
+    "Boago Mosidila is a passionate IT professional specializing in cybersecurity, cloud computing, and IT operations. Explore my portfolio to learn more about my expertise, projects, and certifications.",
   author: "Boago Mosidila",
   location: "Francistown, Botswana",
   contact: "+267 76476746 | bmosidila@gmail.com",
   linkedin: "https://www.linkedin.com/in/boagomosidila",
+  keywords: [
+    "Boago Mosidila",
+    "Cybersecurity",
+    "Cloud Computing",
+    "IT Professional",
+    "Network Security",
+    "Microsoft Azure",
+    "AWS",
+    "Fortinet",
+    "Cisco",
+    "React.js Portfolio",
+  ],
+  openGraph: {
+    title: "Boago Mosidila - Cybersecurity & IT Professional",
+    description:
+      "Explore Boago Mosidila's portfolio showcasing expertise in cybersecurity, cloud computing, and IT operations.",
+    url: "https://boamos.github.io/",
+    type: "website",
+    image: "https://avatars.githubusercontent.com/u/61083317?v=4", 
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@boago_mos",
+    title: "Boago Mosidila - Cybersecurity & IT Professional",
+    description:
+      "Explore Boago Mosidila's portfolio showcasing expertise in cybersecurity, cloud computing, and IT operations.",
+    image: "https://boagomosidila.com/twitter-image.jpg", 
+  },
   expertise: [
     "Network Security (Fortinet, Cisco, Wireshark)",
     "Cloud Platforms (Microsoft Azure, AWS)",
@@ -80,8 +97,24 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <meta name="google-site-verification" content="jOlrVGl3ljpzeOS43jRczrbvkrfxYL7haujKUUUt5Ek" />
-      <body className="antialiased font-mono">{children}</body>
+      <head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <meta name="author" content={metadata.author} />
+        <meta name="keywords" content={metadata.keywords.join(", ")} />
+        <meta property="og:title" content={metadata.openGraph.title} />
+        <meta property="og:description" content={metadata.openGraph.description} />
+        <meta property="og:url" content={metadata.openGraph.url} />
+        <meta property="og:type" content={metadata.openGraph.type} />
+        <meta property="og:image" content={metadata.openGraph.image} />
+        <meta name="twitter:card" content={metadata.twitter.card} />
+        <meta name="twitter:site" content={metadata.twitter.site} />
+        <meta name="twitter:title" content={metadata.twitter.title} />
+        <meta name="twitter:description" content={metadata.twitter.description} />
+        <meta name="twitter:image" content={metadata.twitter.image} />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+      </head>
+      <body className="  antialiased font-mono">{children}</body>
     </html>
   );
 }
