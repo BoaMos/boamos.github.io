@@ -9,7 +9,7 @@ import Education from "./components/education";
 import Footer from "./components/footer";
 
 export default function Home() {
-  const [isLightMode, setIsLightMode] = useState(false);
+  const [isLightMode, setIsLightMode] = useState(true);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
 
   const toggleTheme = () => {
