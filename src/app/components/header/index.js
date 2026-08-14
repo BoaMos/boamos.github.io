@@ -36,9 +36,9 @@ const Header = ({ isLightMode,toggleTheme }) => {
             className={`cursor-pointer ${
               isLightMode ? "text-black" : "text-green-300"
             }`}
-            href="tel:+26776476746"
+            href="tel:+267 ###########"
           >
-            +267 76476746
+            +267 7###########
           </a>
           <p
             className={`${
@@ -59,7 +59,7 @@ const Header = ({ isLightMode,toggleTheme }) => {
               isLightMode ? "text-gray-700" : "text-green-300"
             }`}
           >
-            Francistown, Botswana
+            Gaborone, Botswana
           </p>
           <p
             className={`cursor-pointer ${
